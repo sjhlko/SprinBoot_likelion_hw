@@ -1,9 +1,6 @@
 package com.springboot.homework.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/get-api")
@@ -15,5 +12,9 @@ public class GetController {
     @GetMapping("/name")
     public String getName(){
         return "heong";
+    }
+    @GetMapping("/variable1/{variable}")
+    public String getVariable(@PathVariable String variable){
+        return "변수로 전달된 값은: "+ variable;
     }
 }
