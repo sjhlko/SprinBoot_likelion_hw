@@ -16,4 +16,9 @@ public class PostController {
         return sb.toString();
     }
 
+    @PostMapping("/member2")
+    public String postMember(@RequestBody MemberDto memberDto){
+        return memberDto.toString();
+    }
+
 }
