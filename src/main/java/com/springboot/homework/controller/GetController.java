@@ -17,4 +17,10 @@ public class GetController {
     public String getVariable(@PathVariable String variable){
         return "변수로 전달된 값은: "+ variable;
     }
+    @GetMapping("/request1")
+    public String getVariable2(@RequestParam String name, @RequestParam String email,
+                               @RequestParam String organization){
+        return String.format("이름:%s 이메일:%s 기관:%s", name, email,organization);
+    }
+
 }
