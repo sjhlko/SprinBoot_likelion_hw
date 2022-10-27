@@ -1,5 +1,6 @@
 package com.springboot.homework.controller;
 
+import com.springboot.homework.domain.dto.MemberDto;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -20,17 +21,22 @@ public class GetController {
         return "변수로 전달된 값은: "+ variable;
     }
     @GetMapping("/request1")
-    public String getVariable2(@RequestParam String name, @RequestParam String email,
+    public String getParam(@RequestParam String name, @RequestParam String email,
                                @RequestParam String organization){
         return String.format("이름:%s 이메일:%s 기관:%s", name, email,organization);
     }
 
     @GetMapping("/request2")
-    public String getVariable3(@RequestParam Map<String, String> param){
+    public String getParam2(@RequestParam Map<String, String> param){
         param.entrySet().forEach((map)->{
             System.out.printf("key: %s value: %s\n", map.getKey(),map.getValue());
         });
         return "호출 성공";
+    }
+
+    @GetMapping("/request3")
+    public String getParam3(MemberDto memberDto){
+        return memberDto.toString();
     }
 
 }
