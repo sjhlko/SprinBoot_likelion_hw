@@ -2,6 +2,8 @@ package com.springboot.homework.controller;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/v1/get-api")
 public class GetController {
@@ -21,6 +23,14 @@ public class GetController {
     public String getVariable2(@RequestParam String name, @RequestParam String email,
                                @RequestParam String organization){
         return String.format("이름:%s 이메일:%s 기관:%s", name, email,organization);
+    }
+
+    @GetMapping("/request2")
+    public String getVariable3(@RequestParam Map<String, String> param){
+        param.entrySet().forEach((map)->{
+            System.out.printf("key: %s value: %s\n", map.getKey(),map.getValue());
+        });
+        return "호출 성공";
     }
 
 }
